@@ -41,6 +41,14 @@ function my_theme_register_required_plugins() {
 
 		// REQUIRED PLUGINS
 		array(
+			'name' 				=> 'GitHub Updater',
+			'slug' 				=> 'github-updater',
+			'source'			=> get_template_directory() . '/inc/plugins/github-updater.zip',
+			'required' 			=> true,
+			'force_activation' 	=> true,
+			'force_deactivation'=> false,
+		),
+		array(
 			'name' 				=> 'WooCommerce',
 			'slug' 				=> 'woocommerce',
 			'required' 			=> true,
@@ -48,7 +56,6 @@ function my_theme_register_required_plugins() {
 		array(
 			'name' 				=> 'Visual Composer',
 			'slug' 				=> 'js_composer',
-			//'source'			=> get_template_directory() . '/inc/plugins/js_composer.zip',
 			'source'			=> 'http://aligator-studio.com/tgm_pa_plugins/js_composer.zip',
 			'external_url' 		=> 'http://aligator-studio.com/tgm_pa_plugins',
 			'required' 			=> true,
@@ -71,16 +78,12 @@ function my_theme_register_required_plugins() {
 			'source'			=> 'http://aligator-studio.com/tgm_pa_plugins/revslider.zip',
 			'external_url'		=> 'http://aligator-studio.com/tgm_pa_plugins/',
 			'required' 			=> true,
-			//'force_activation' 	=> false,
-			//'force_deactivation'=> false,
 		),
 		array(
 			'name' 				=> 'WP Envato Market',
 			'slug' 				=> 'envato-market',
 			'source'			=> 'http://envato.github.io/wp-envato-market/dist/envato-market.zip',
 			'required' 			=> true,
-			//'force_activation' 	=> false,
-			//'force_deactivation'=> false,
 		),
 		array(
 			'name' 				=> 'WooCommerce Lookbook',

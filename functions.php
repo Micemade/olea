@@ -348,11 +348,6 @@ add_filter( 'wp_calculate_image_srcset', '__return_false', PHP_INT_MAX );
 
 // Remove the reponsive stuff from the content
 remove_filter( 'the_content', 'wp_make_content_images_responsive' );
-
-//Load GitGub Theme Updater Class
-if( is_admin() ) {
-	require_once( trailingslashit( get_template_directory() ) . 'inc/class-theme-updater.php' );
-}
 /*
 if (headers_sent()) {
     print_r("Headers are sent");
