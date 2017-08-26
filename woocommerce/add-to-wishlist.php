@@ -15,6 +15,10 @@ $title_in_wishlist	= __( 'The product is already in the wishlist! Browse Wishlis
 
 // 3.0.0 < Fallback conditional :
 $product_id	= apply_filters( 'olea_wc_version', '3.0.0'  ) ? $product->get_id() : $product->id;
+
+$exists = YITH_WCWL()->is_product_in_wishlist( $product_id	, false );
+$wishlist_url = YITH_WCWL()->get_wishlist_url();
+$available_multi_wishlist = false;
 ?>
 
 <div class="yith-wcwl-add-to-wishlist add-to-wishlist-<?php echo esc_attr($product_id); ?>">

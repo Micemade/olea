@@ -362,40 +362,6 @@ function as_image_sizes_mediapopup( $sizes ) {
 }
 
 /**
- * REMOVE AN ANONYMOUS FUNCTION FILTER.
- *
- * @param string $tag      Hook name.
- * @param string $filename The file where the function was declared.
- * @param int $priority    Optional. Hook priority. Defaults to 10.
- * @return bool
- */
-if ( !function_exists('remove_anonymous_function_filter') ) {
-    
-    function remove_anonymous_function_filter($tag, $filename, $priority = 10) {
-        $filename = plugin_basename($filename);
- 
-        if ( !isset($GLOBALS['wp_filter'][$tag][$priority]) ) {
-            return false;
-        }
-        $filters = $GLOBALS['wp_filter'][$tag][$priority];
- 
-        foreach ($filters as $callback) {
-            if ( ($callback['function'] instanceof Closure) || is_string($callback['function']) ) {
-                $function = new ReflectionFunction($callback['function']);
- 
-                $funcFilename = plugin_basename($function->getFileName());
-                $funcFilename = preg_replace('@\(\d+\)\s+:\s+runtime-created\s+function$@', '', $funcFilename);
- 
-                if ( $filename === $funcFilename ) {
-                    return remove_filter($tag, $callback['function'], $priority);
-                }
-            }
-        }
- 
-        return false;
-    }
-}
-/**
  *	DEPRECATED: AS SLUGIFY - convert arbitrary string to slug formated sting
  *  - deprecated in favour or WP function sanitize_title
  *

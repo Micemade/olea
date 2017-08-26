@@ -84,7 +84,18 @@ $single_full_width			= apply_filters( "olea_options", "single_full_width", 0 );
 
 <div class="row">
 
-	<div id="primary" class="large-<?php echo ( $layout =='full_width' || $single_full_width ) ? '12' : '8'; ?> <?php echo $layout ? esc_attr( $layout ) : null; ?> medium-12 small-12" role="main">
+	<div id="primary" class="large-<?php echo ( $layout =='full_width' || $single_full_width ) ? '12' : '8'; ?> <?php echo ( $layout ? esc_attr( $layout ) : null); ?> medium-12 small-12" role="main">
+	
+	<?php
+		/**
+		 * woocommerce_before_main_content hook.
+		 *
+		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+		 * @hooked woocommerce_breadcrumb - 20
+		 */
+		remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+		do_action( 'woocommerce_before_main_content' );
+	?>
 	
 	<?php while ( have_posts() ) : the_post(); ?>
 
@@ -109,11 +120,11 @@ $single_full_width			= apply_filters( "olea_options", "single_full_width", 0 );
 		 *
 		 * @hooked woocommerce_get_sidebar - 10
 		 */
-		if( !$single_full_width	&& $layout !='full_width' ) {
+		if( !$single_full_width	&& $layout !=='full_width' ) {
 			do_action('woocommerce_sidebar');
 		}
 		?>
 
-</div><!-- /.container -->
+</div><!-- /.row -->
 
 <?php get_footer('shop'); ?>

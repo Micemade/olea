@@ -183,9 +183,7 @@ function as_single_prod_func( $atts, $content = null ) {
 						echo '</div>'; // .reduced
 						
 					}else{ // as in single product page: 
-					
-						do_action('remove_YITH_wishlist_hooks'); // in "woocommerce-theme-edits.php" and "admin_functions.php"
-						
+											
 						// HIDE ADD TO CART
 						if( $hide_addtocart ) {
 							remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );

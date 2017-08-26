@@ -14,6 +14,7 @@ $product_id	= apply_filters( 'olea_wc_version', '3.0.0'  ) ? $product->get_id() 
 $icon 		= '<span class="icon-heart-outlined"></span>';
 $classes	= 'add_to_wishlist tip-top';
 $title_add	= __('Add to wishlist','olea');
+$product_type = $product->get_type();
 ?>
 
 <a href="<?php echo esc_url( add_query_arg( 'add_to_wishlist', $product_id ) ); ?>" data-product-id="<?php echo esc_attr($product_id); ?>" data-product-type="<?php echo esc_attr( $product_type ); ?>" class="<?php echo esc_attr($classes); ?>" title="<?php echo esc_attr($title_add); ?>" data-tooltip>

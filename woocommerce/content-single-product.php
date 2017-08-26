@@ -48,9 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 }
 		
 		woocommerce_show_product_sale_flash();
-		
-		do_action('remove_YITH_wishlist_hooks'); // in "woocommerce-theme-edits.php" and "admin_functions.php"
-		
+				
 		/** 
 		 *	SINGLE PRODUCT IMAGES BEHAVIOR 
 		 *	- default (feat. image with thumbs), slider or magnifier effect 

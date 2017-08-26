@@ -6,7 +6,7 @@ $layout			= apply_filters( "olea_options", "layout", "float_left" );
 $empty_sidebar	= apply_filters( "olea_options", "empty_sidebar_meta", "empty_notice" );
 ?>
 
-<?php if( $layout != 'full_width' ) { ?>
+<?php if( $layout !== 'full_width' ) { ?>
 
 <span class="large-offset-<?php echo $layout == 'float_left' ? '8' : '4' ?> sections-border<?php echo $layout == 'float_right' ? ' float_left' : null ?>"></span>
 
@@ -15,7 +15,7 @@ $empty_sidebar	= apply_filters( "olea_options", "empty_sidebar_meta", "empty_not
 $grid = ( $layout == 'full_width' ) ? '12' : '4';
 ?>
 
-<div id="secondary" class="widget-area large-<?php echo esc_attr($grid); ?> <?php echo $layout == 'float_right' ? ' float_left' : null ?> medium-12 small-12" role="complementary">
+<div id="secondary" class="widget-area large-<?php echo esc_attr($grid);?> <?php echo ( $layout == 'float_right' ) ? ' float_left' : null; ?> medium-12 small-12" role="complementary">
 	
 	<?php if (  is_active_sidebar( 'sidebar-shop' ) )  {
 	

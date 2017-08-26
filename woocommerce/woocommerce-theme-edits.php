@@ -761,34 +761,6 @@ if( $olea_woo_is_active ) {
 
 		/* end AS WISHLIST */
 
-		/*
-		 *	REMOVE ANNONYMOUS YITH HOOKS
-		 *
-		 *	- remove single product yith wishlist button, which is created
-		 *  with anonymous function
-		 */
-
-		add_action('remove_YITH_wishlist_hooks', 'remove_anonymous_YITH_hooks');
-		function remove_anonymous_YITH_hooks() {
-
-			remove_anonymous_function_filter(
-				'woocommerce_single_product_summary',
-				YITH_WCWL_DIR . 'class.yith-wcwl-init.php',
-				31
-			);
-			remove_anonymous_function_filter(
-				'woocommerce_product_thumbnails',
-				YITH_WCWL_DIR . 'class.yith-wcwl-init.php',
-				21
-			);
-			remove_anonymous_function_filter(
-				'woocommerce_after_single_product_summary',
-				YITH_WCWL_DIR . 'class.yith-wcwl-init.php',
-				11
-			);
-
-		}
-
 		function dequeue_yith_styles() {
 			wp_dequeue_style( 'yith-wcwl-font-awesome');
 			wp_dequeue_style( 'yith-wcwl-font-awesome-ie7' );
